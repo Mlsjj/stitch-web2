@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>常数空间 - 首页</title>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome图标库 -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 自定义Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#7B61FF',
+            accent: '#FF61BF',
+            dark: '#14171A', // X平台主深色
+            light: '#F5F8FA', // 浅背景色
+            gray: {
+              300: '#AAB8C2',
+              400: '#8899A6',
+              500: '#657786',
+              700: '#444B54',
+              800: '#1C2023',
+              900: '#14171A',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      /* 渐变文字工具类 - 匹配蓝→紫→洋红需求 */
+      .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(90deg, #165DFF, #7B61FF, #FF61BF);
+      }
+      /* 按钮渐变背景 */
+      .bg-gradient-primary {
+        background-image: linear-gradient(90deg, #165DFF, #7B61FF, #FF61BF);
+      }
+      /* 通用按钮反馈 */
+      .btn-effect {
+        transition: all 0.2s ease;
+      }
+      .btn-effect:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(22, 93, 255, 0.2);
+      }
+      .btn-effect:active {
+        transform: scale(0.98);
+        box-shadow: none;
+      }
+      /* 社交图标hover渐变 */
+      .social-hover {
+        transition: all 0.3s ease;
+      }
+      .social-hover:hover {
+        background-image: linear-gradient(90deg, #165DFF, #7B61FF, #FF61BF);
+        color: white !important;
+        transform: translateY(-2px);
+      }
+      /* 链接渐变下划线 */
+      .link-grad {
+        position: relative;
+      }
+      .link-grad::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-image: linear-gradient(90deg, #165DFF, #7B61FF, #FF61BF);
+        transition: width 0.3s ease;
+      }
+      .link-grad:hover::after {
+        width: 100%;
+      }
+      /* 渐入动画 */
+      .fade-in {
+        animation: fadeIn 0.8s ease forwards;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      /* 背景渐变效果 */
+      .bg-gradient-dark {
+        background: linear-gradient(135deg, #14171A 0%, #1C2023 100%);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-dark text-light min-h-screen flex flex-col">
+  <!-- 主内容区 - 宣传海报 -->
+  <main class="flex-grow container mx-auto px-4 md:px-8 py-16 md:py-24 flex flex-col items-center justify-center">
+    <div class="max-w-4xl mx-auto text-center fade-in">
+      <!-- 品牌logo - 常数空间渐变文字 -->
+      <h1 class="text-4xl md:text-6xl font-bold text-gradient mb-8">常数空间</h1>
+      
+      <!-- 宣传标语 -->
+      <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+        高效UI输入平台，安全无隐私窃取
+      </p>
+      
+      <!-- 核心优势 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/30 hover:bg-gray-800/80 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+          <div class="text-primary text-3xl mb-4 hover:text-white transition-colors duration-300">
+            <i class="fa fa-shield"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-white hover:text-gradient transition-all duration-300">隐私保护</h3>
+          <p class="text-gray-400 hover:text-gray-200 transition-colors duration-300">绝不窃取、存储或滥用任何用户隐私数据，所有输入内容仅在本地处理</p>
+        </div>
+        
+        <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/30 hover:bg-gray-800/80 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+          <div class="text-primary text-3xl mb-4 hover:text-white transition-colors duration-300">
+            <i class="fa fa-bolt"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-white hover:text-gradient transition-all duration-300">高效输入</h3>
+          <p class="text-gray-400 hover:text-gray-200 transition-colors duration-300">简洁流畅的输入体验，让您的操作更加高效便捷</p>
+        </div>
+        
+        <div class="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/30 hover:bg-gray-800/80 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+          <div class="text-primary text-3xl mb-4 hover:text-white transition-colors duration-300">
+            <i class="fa fa-globe"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-white hover:text-gradient transition-all duration-300">多语言支持</h3>
+          <p class="text-gray-400 hover:text-gray-200 transition-colors duration-300">支持中文和英文切换，满足不同用户的语言需求</p>
+        </div>
+      </div>
+      
+      <!-- 行动按钮 -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+        <button onclick="window.location.href='search.html'" class="bg-gradient-primary text-white rounded-full px-8 py-4 btn-effect flex items-center gap-2 text-lg">
+          <i class="fa fa-search"></i>
+          开始使用
+        </button>
+        <button onclick="window.location.href='search.html'" class="bg-transparent border-2 border-gray-600 text-gray-300 rounded-full px-8 py-4 btn-effect flex items-center gap-2 text-lg hover:border-primary hover:text-primary">
+          <i class="fa fa-info-circle"></i>
+          了解更多
+        </button>
+      </div>
+      
+      <!-- 底部说明 -->
+      <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto">
+        常数空间致力于为用户提供安全、高效的输入体验，我们始终将用户隐私放在首位，
+        所有操作均在本地设备完成，确保您的数据安全与隐私权益。
+      </p>
+    </div>
+  </main>
+  
+  <!-- 底部栏 - 社交图标+版权年份，融合X/YouTube形态 -->
+  <footer class="bg-gray-900 border-t border-gray-800 py-6 sm:py-8 px-4 md:px-8">
+    <div class="container mx-auto max-w-4xl">
+      <!-- 社交图标 -->
+      <div class="flex justify-center gap-4 sm:gap-6 mb-4 sm:mb-6">
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-hover text-gray-300 text-xl sm:text-2xl w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center border border-gray-700">
+          <i class="fa fa-twitter"></i> <!-- X平台图标 -->
+        </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-hover text-gray-300 text-xl sm:text-2xl w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center border border-gray-700">
+          <i class="fa fa-youtube-play"></i> <!-- YouTube图标 -->
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-hover text-gray-300 text-xl sm:text-2xl w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center border border-gray-700">
+          <i class="fa fa-instagram"></i> <!-- Instagram图标 -->
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-hover text-gray-300 text-xl sm:text-2xl w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center border border-gray-700">
+          <i class="fa fa-facebook"></i> <!-- Facebook图标 -->
+        </a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-hover text-gray-300 text-xl sm:text-2xl w-8 sm:w-10 h-8 sm:h-10 rounded-full flex items-center justify-center border border-gray-700">
+          <i class="fa fa-tiktok"></i> <!-- TikTok图标 -->
+        </a>
+      </div>
+      <!-- 底部链接+版权 -->
+      <div class="flex flex-col md:flex-row justify-center items-center gap-3 sm:gap-4 text-gray-400 text-xs sm:text-sm">
+        <a href="#" class="link-grad">服务条款</a>
+        <a href="#" class="link-grad">隐私申明</a>
+        <span>© 2026 常数空间 版权所有</span>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JavaScript 交互逻辑 -->
+  <script>
+    // 页面加载完成后执行
+    window.addEventListener('load', function() {
+      // 可以添加页面加载动画或其他初始化逻辑
+    });
+  </script>
+</body>
+</html>
